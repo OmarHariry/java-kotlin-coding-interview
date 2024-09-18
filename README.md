@@ -1,32 +1,66 @@
-# Coding Interview: Rock Paper Scissors
+# Rock-Paper-Scissors Game
 
-## The Task
+A simple implementation of the classic rock-paper-scissors game in Java. This project features two players, where one player makes random choices and the other always chooses rock.
 
-Write a program that plays multiple rounds of Rock, Paper, Scissors (https://en.wikipedia.org/wiki/Rock-paper-scissors) and shows the final results of the game.The code should at least provide the minimal functional requirements listed below, have high test coverage and adhere to common clean code rules. 
+## Table of Contents
 
-KEEP IT SIMPLE - remember: we're not looking for a full-blown business application, but a basis for discussion and further development. A simple text output for the result will do.
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Code Structure](#code-structure)
+- [Classes and Methods](#classes-and-methods)
 
-Minimal functional requirements:
-* One player should always play randomly, the other should always choose rock. No user interaction should be required (i.e. no reading from stdin and waiting for a user interaction)
-* The application should play 100 rounds of the game
-* The application should evaluate the game logic, i.e. the result (e.g. WIN, DRAW, LOSE) of two actions (e.g. ROCK, PAPER, SCISSOR) competing against each other
-* The application should calculate at least the number of wins for each player and the number of draws.
- 
+## Features
 
-## Technical requirements
+- Two players: Player A (random choice) and Player B (always chooses rock).
+- Tracks and displays the number of wins, losses, and draws after a set number of rounds.
 
-Language: Kotlin, tests in a language and with a framework of your choice
-Approach: ideally "test-driven
-Build files (e.g. for Gradle or Maven) should be included in the project
- 
-[Fork this repository](https://github.com/cocharge/coding-interview/fork) and push changes to your forked personal repository.
+## Getting Started
 
-The output of the program should be like the following:
+### Prerequisites
 
-```
-"Player A wins 31 of 100 games"
-"Player B wins 37 of 100 games"
-"Draws: 32 of 100 games"
-```
+- Java Development Kit (JDK) 17
+- Maven
+- An IDE or text editor (e.g., IntelliJ IDEA, Eclipse, Visual Studio Code)
 
-Good luck!
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/OmarHariry/java-kotlin-coding-interview
+   cd RockPaperScissor
+   ```
+2. Build the Project:
+   ```bash
+   mvn clean install
+   ```
+3. Run the project
+   ```bash
+   mvn exec:java -Dexec.mainClass="com.game.Main"
+   ```
+
+
+### Code Structure
+- **Player**: Represents a player in the game and their choices.
+- **Result**: Contains the logic for determining the outcome of a round.
+- **Game**: Manages the game flow and tracks scores.
+- **Main**: Entry point of the application, where the game is initialized and executed.
+
+### Classes and Methods
+The project is organized into the following classes:
+
+- **Player**: Represents a player in the rock-paper-scissors game.
+  - **Choice Enum**: Represents the possible choices (ROCK, PAPER, SCISSORS).
+  - `Choice chooseRandom()`: Returns a randomly selected choice.
+  - `Choice chooseRock()`: Returns the choice ROCK.
+
+- **Result**: Contains the logic for determining the outcome of a round.
+  - **RoundResult Enum**: Represents the possible outcomes of a round (WIN, LOSE, DRAW).
+  - `RoundResult getRoundResult(Choice playerAChoice, Choice playerBChoice)`: Determines the outcome based on both players' choices.
+
+- **Game**: Manages the game flow, tracks scores, and handles rounds.
+  - `void playRounds(int rounds)`: Plays a specified number of rounds and updates scores.
+  - `void getRoundResults(int rounds)`: Displays the results after the rounds have been played.
+
+- **Main**: The entry point of the application, where the game is initialized and executed.
+  - `public static void main(String[] args)`: Starts the game and runs the rounds.
+
